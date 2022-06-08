@@ -1,6 +1,6 @@
 <?php
 
-$address = 'localhost';
+$address = '0.0.0.0';
 $port = 8282;
 
 // Create WebSocket.
@@ -9,7 +9,6 @@ socket_set_option($server, SOL_SOCKET, SO_REUSEADDR, 1);
 socket_bind($server, $address, $port);
 socket_listen($server);
 $client = socket_accept($server);
-var_dump($client);
 
 // Send WebSocket handshake headers.
 $request = socket_read($client, 5000);
